@@ -1,5 +1,8 @@
+import React, { useState } from "react";
 import "./App.css";
-import GradingSclae from "../src/components/GradingSclae"
+import GradingSclae from "../src/components/GradingSclae";
+import { Button, Modal } from "react-bootstrap";
+import GradeScale2 from "./components/GradeScale2";
 function App() {
   const data = [
     { sub: "Enlish", Fa: 10, O1: 10, Sa: 50, O2: 23, Total: 80 },
@@ -12,9 +15,32 @@ function App() {
     { sub: "Moral", Fa: 10, O1: 10, Sa: 50, O2: 10, Total: 80 },
     { sub: "Gk", Fa: 10, O1: 10, Sa: 50, O2: 10, Total: 80 },
     { sub: "Conversation", Fa: 10, O1: 10, Sa: 50, O2: 10, Total: 80 },
-    { sub: "Conversation", Fa: 10, O1: 10, Sa: 50, O2: 10, Total: 80 },
+
     { sub: "Drawing", Fa: "", O1: "", Sa: null, O2: null, Total: "A" },
   ];
+  // const [marks, setMarks] = useState({
+  //   English: {},
+  //   Hin: {},
+  //   San: {},
+  //   Mat: {},
+  //   Evs: {},
+  //   Soc: {},
+  //   Com: {},
+  //   Mor: {},
+  //   Gk: {},
+  //   Con: {},
+  //   Draw: {},
+  // });
+  const [English,setEnglish]=useState({FA:"",SA:"",O1:"",O2:""})
+  const handleChange = (e) => {
+    const {id,value}=e.target //id-->name here
+    if(e.target.id=="English"){
+      setEnglish(
+        {...English,[id]:'2'}
+      )
+    }
+    console.log(English,id,value)
+  };
   const grade = [
     { key: "Development & Maturity", val: "A" },
     { key: "Responsibility", val: "A" },
@@ -28,19 +54,28 @@ function App() {
     { key: "Craft", val: "A" },
     { key: "Regularity & Punctuality", val: "A" },
   ];
+  const [popup, setPopup] = useState(true);
+  const handleModal = () => {
+    if (popup) {
+      setPopup(false);
+    } else {
+      setPopup(true);
+    }
+  };
+
   return (
     <>
-      <div className=" parent-div border border-dark p-0">
-        <h3 className="text-center red border-bottom border-dark m-0">
+      <div className=" parent-div border-top border-bottom  border-end border-start border-dark p-0">
+        <h3 className="text-center  p1  red border-bottom border-dark m-0">
           First Terminal Examination 2022-23
         </h3>
-        <h6 className="text-center border-bottom border-dark m-0">
+        <h6 className="text-center p1  border-bottom border-dark m-0">
           ACADEMIC PERFORMANCE
         </h6>
 
         <div className="aca-div container">
-          <div className="row border-dark border-bottom">
-            <div className=" part-1 col-7 border-end border-dark">
+          <div className="row border-dark main-div-sc-cosc border-bottom">
+            <div className=" part-1 col-lg-7 col-sm-12 border-end border-dark">
               <div className=" text-center text-center text-primary font-weight-bold ">
                 Part-I Scholastic Areas
               </div>
@@ -92,24 +127,24 @@ function App() {
                         {i + 1}
                       </div>
                       <div
-                        className="col-5 border-top border-end border-dark"
+                        className="col-5 border-top border-end border-dark d-flex justify-content-left"
                         style={{ textAlign: "left" }}
                       >
                         {elem.sub}
                       </div>
-                      <div className="col-1 border-top border-end border-dark">
+                      <div className="col-1 border-top border-end border-dark d-flex justify-content-center">
                         {elem.Fa}
                       </div>
-                      <div className="col-1 border-top border-end border-dark">
+                      <div className="col-1 border-top border-end border-dark d-flex justify-content-center">
                         {elem.O1}
                       </div>
-                      <div className="col-1 border-top border-end border-dark">
+                      <div className="col-1 border-top border-end border-dark d-flex justify-content-center">
                         {elem.Sa}
                       </div>
-                      <div className="col-1 border-top border-end border-dark">
+                      <div className="col-1 border-top border-end border-dark d-flex justify-content-center">
                         {elem.O2}
                       </div>
-                      <div className="col-2 border-top border-dark">
+                      <div className="col-2 border-top border-dark d-flex justify-content-center">
                         {elem.Total}
                       </div>
                     </div>
@@ -138,14 +173,14 @@ function App() {
             </div>
 
             {/* part2 start */}
-            <div className="container part2main col-5">
+            <div className="container part2main col-lg-5 col-sm-12">
               <div className="d-flex justify-content-center align-items-centertext-center text-primary font-weight-bold row border-bottom border-dark">
                 Part-II Co-Scholastic Areas
               </div>
 
-              <div className="d-flex justify-content-end align-items-center row">
+              <div className="d-flex justify-content-end align-items-center row border-bottom border-dark">
                 <div
-                  className=" col-2 border-start border-dark d-flex justify-content-center align-items-center text-center"
+                  className=" col-lg-2 border-start border-dark d-flex justify-content-center  text-center"
                   // style={{ height: "50px" }}
                 >
                   Grade
@@ -154,15 +189,18 @@ function App() {
               {grade.map((elem) => {
                 return (
                   <>
-                    <div className="d-flex justify-content-end align-items-center row" style={{height:"auto"}}>
+                    <div
+                      className="d-flex justify-content-end align-items-center row border-bottom border-dark"
+                      style={{ height: "auto" }}
+                    >
                       <div
-                        className="col-10 border-dark border-top border-end"
+                        className="col-10 border-dark border-end col-sx-9"
                         // style={{ height: "34px" }}
                       >
                         {elem.key}
                       </div>
                       <div
-                        className=" col-2 text-center border-dark border-top"
+                        className=" col-2 text-center border-dark  col-sx-3"
                         // style={{ height: "34px" }}
                       >
                         {elem.val}
@@ -171,49 +209,136 @@ function App() {
                   </>
                 );
               })}
-              
             </div>
           </div>
         </div>
 
         {/* part3 start */}
 
-        <div className="container   part3">
-
+        <div className="container m-0  part3">
           <h5 className="text-center">Part-III : Attendance </h5>
-          <div className="m-2 m-auto border-dark border container">
-            <div className="row ">
-              <div className="col-2  border-end border-dark"></div>
-              <div className="col-4  border-end border-dark">No. of Working Days</div>
-              <div className="col-4  border-end border-dark">No. of Days Present</div>
-              <div className="col-2 ">Percentage</div>
+          <div className=" m-auto border-dark row border container d-flex justify-content-center ">
+            <div className="col-lg-2 col-sm-6 border-end border-dark">
+              <div className="row"></div>
+              <div className="row d-flex justify-lg-content-center ps-2">
+                Term-1
+              </div>
             </div>
-            <div className="row ">
-            <div className="col-2  border-dark border-top border-end text-center">Term-1</div>
-              <div className="col-4  border-dark border-top border-end text-center">83</div>
-              <div className="col-4 border-dark border-top border-end text-center">83</div>
-              <div className="col-2 border-dark border-top text-center">100</div>
+            <div className="col-lg-4  col-sm-6 border-end border-dark ">
+              <div className="row d-flex justify-content-lg-center ps-2">
+                No Of Working Days
+              </div>
+              <div className="row d-flex justify-content-lg-center ps-2">
+                89
+              </div>
             </div>
-
+            <div className="col-lg-4  col-sm-6 border-end border-dark">
+              <div className="row d-flex justify-content-lg-center ps-2">
+                No. Of Days Present
+              </div>
+              <div className="row d-flex justify-content-lg-center ps-2">
+                89
+              </div>
+            </div>
+            <div className="col-lg-2  col-sm-6 ">
+              <div className="row d-flex justify-content-lg-center ps-2">
+                Percentage
+              </div>
+              <div className="row d-flex justify-content-lg-center ps-2">
+                100
+              </div>
+            </div>
           </div>
-          <div className="d-flex justify-content-between">
+          <div className="d-flex justify-content-between ps-1 pe-1">
             <div>C.G.P.A : {9.6}</div>
             <div>Grade : {"A"}</div>
           </div>
-          <div className="remark mb-5">
+          <div className="remark mb-5 ps-1 pe-1">
             Teacher's Remark : <span className="fw-bold"> {"Excellent"}</span>
           </div>
-          <div className="d-flex justify-content-between">
+          <div className="d-flex justify-content-between ps-1 pe-1">
             <div>Teachers Signeture</div>
             <div>Parent's Signature</div>
             <div>Pricpal's Signature</div>
           </div>
+          <div className="row part4 p-0 m-0 ">
+            <h4 className=" text-center part4 f-cap m-0 p-0">
+              GRADING <span style={{ fontSize: "150%" }}>S</span>CALE
+            </h4>
+          </div>
         </div>
-        <h4 className="text-center f-cap m-2">GRADING <span style={{fontSize:"150%"}}>S</span>CALE</h4>
-        <div className="row m-auto" style={{width:"45%"}}>
-        <GradingSclae />
+
+        <div className="row border-end border-start border-dark p-0 m-0  ">
+          {/* <GradingSclae  /> */}
+        </div>
+        <div className=" col-6 m-auto">
+          <GradeScale2 />
+        </div>
+        <div className="row text-center justify-center d-flex part4 border-bottom border-top border-dark   p-0 m-0 ">
+          <h4 className="part4">
+            <i> Our Parents Are Seen God On The Earth</i>
+          </h4>
+        </div>
+        <div
+          className="row m-0 p-0 flex-row d-flex justify-content-between"
+          style={{}}
+        >
+          <Modal show={popup} onHide={handleModal}>
+            <Modal.Header closeButton>Fill In Your Mark</Modal.Header>
+
+            <Modal.Body>
+              <div className="container">
+                {data.map((elem,i) => {
+                  return (
+                    <>
+                      <div className="row m-auto d-flex justify-content-around">
+                        <h6>{elem.sub}</h6>
+                        <input
+                          className="col-2 "
+                          placeholder="FA"
+                          type="text"
+                          pattern="\d*"
+                          maxlength="2"
+                          name={elem.sub}
+                          
+        
+                          id="FA"
+                          onChange={(e)=>{handleChange(e)}}
+                          
+                          
+                        />
+                        <input
+                          type="number"
+                          className="col-2 "
+                          placeholder="Oral"
+                        />
+                        <input
+                          type="number"
+                          className="col-2 "
+                          placeholder="SA"
+                        />
+                        <input
+                          type="number"
+                          className="col-2 "
+                          placeholder="Oral"
+                        />
+                      </div>
+                    </>
+                  );
+                })}
+              </div>
+            </Modal.Body>
+          </Modal>
         </div>
       </div>
+      <Button
+        type="button"
+        class="btn btn-success p-2 "
+        style={{ width: "5%", height: "1%" }}
+        onClick={handleModal}
+      >
+        ADD
+      </Button>
     </>
   );
 }

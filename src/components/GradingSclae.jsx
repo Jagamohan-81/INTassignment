@@ -3,7 +3,7 @@ import React from "react";
 function GradingSclae() {
   return (
     <>
-      <table class="table  table-bordered" style={{fontSize:"8px"}} >
+      <table class="table m-auto  border-dark border table-bordered" style={{fontSize:"8px",width:"30%"}} >
         <thead className="text-center">
           <tr>
             <th scope="col">MARKS RANGE</th>
