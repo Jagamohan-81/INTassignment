@@ -42,6 +42,7 @@ function App() {
     console.log(English,id,value)
   };
   const grade = [
+    // {key:"",val:"Grade"},
     { key: "Development & Maturity", val: "A" },
     { key: "Responsibility", val: "A" },
     { key: "Self Confidence", val: "A" },
@@ -54,7 +55,7 @@ function App() {
     { key: "Craft", val: "A" },
     { key: "Regularity & Punctuality", val: "A" },
   ];
-  const [popup, setPopup] = useState(true);
+  const [popup, setPopup] = useState(false);
   const handleModal = () => {
     if (popup) {
       setPopup(false);
@@ -122,7 +123,7 @@ function App() {
               {data.map((elem, i) => {
                 return (
                   <>
-                    <div className="row text-center">
+                    <div className="row text-center" key={i}>
                       <div className="col-1 border-top border-end border-dark">
                         {i + 1}
                       </div>
@@ -173,34 +174,36 @@ function App() {
             </div>
 
             {/* part2 start */}
-            <div className="container part2main col-lg-5 col-sm-12">
-              <div className="d-flex justify-content-center align-items-centertext-center text-primary font-weight-bold row border-bottom border-dark">
+            <div className="container d-flex flex-column justify-content-between  part2main col-lg-5 col-sm-12">
+              <div className="d-flex justify-content-center align-items-center text-center text-primary font-weight-bold row border-bottom border-dark">
                 Part-II Co-Scholastic Areas
               </div>
 
-              <div className="d-flex justify-content-end align-items-center row border-bottom border-dark">
+              <div className="d-flex justify-content-end align-items-center row  border-dark">
                 <div
-                  className=" col-lg-2 border-start border-dark d-flex justify-content-center  text-center"
+                  className=" col-lg-3 border-start border-dark d-flex justify-content-center  text-center"
                   // style={{ height: "50px" }}
                 >
                   Grade
                 </div>
               </div>
-              {grade.map((elem) => {
+              {grade.map((elem,i) => {
                 return (
                   <>
                     <div
-                      className="d-flex justify-content-end align-items-center row border-bottom border-dark"
-                      style={{ height: "auto" }}
+                      className="d-flex grid-grade align-items-center row border-top border-dark "
+                      
+                      style={{ height: "auto" ,marginTop:""}}
+                      key={i}
                     >
                       <div
-                        className="col-10 border-dark border-end col-sx-9"
+                        className="col-9 border-dark border-end col-sx-9"
                         // style={{ height: "34px" }}
                       >
                         {elem.key}
                       </div>
                       <div
-                        className=" col-2 text-center border-dark  col-sx-3"
+                        className=" col-3 text-center  col-sx-3"
                         // style={{ height: "34px" }}
                       >
                         {elem.val}
@@ -291,7 +294,7 @@ function App() {
                 {data.map((elem,i) => {
                   return (
                     <>
-                      <div className="row m-auto d-flex justify-content-around">
+                      <div className="row m-auto d-flex justify-content-around" key={i}>
                         <h6>{elem.sub}</h6>
                         <input
                           className="col-2 "
