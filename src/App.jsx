@@ -334,14 +334,14 @@ function App() {
           </Modal>
         </div>
       </div>
-//       <Button
-//         type="button"
-//         class="btn btn-success p-2 "
-//         style={{ width: "5%", height: "1%" }}
-//         onClick={handleModal}
-//       >
-//         ADD
-//       </Button>
+      <Button
+        type="button"
+        class="btn btn-success p-2 "
+        style={{ width: "5%", height: "1%" }}
+        onClick={handleModal}
+      >
+        ADD
+      </Button>
     </>
   );
 }
