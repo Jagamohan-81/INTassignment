@@ -5,16 +5,16 @@ import { Button, Modal } from "react-bootstrap";
 import GradeScale2 from "./components/GradeScale2";
 function App() {
   const data = [
-    { sub: "Enlish", Fa: 10, O1: 10, Sa: 50, O2: 23, Total: 80 },
+    { sub: "Enlish", Fa: 10, O1: 10, Sa: 50, O2: 23, Total: 93 },
     { sub: "Hindi", Fa: 10, O1: 10, Sa: 50, O2: 10, Total: 80 },
-    { sub: "Sanskrit", Fa: 10, O1: 10, Sa: 50, O2: 10, Total: 80 },
-    { sub: "Math", Fa: 10, O1: 10, Sa: 50, O2: 10, Total: 80 },
+    { sub: "Sanskrit", Fa: 19, O1: 9, Sa: 40, O2: 8, Total: 76 },
+    { sub: "Math", Fa: 14, O1: 5, Sa: 58, O2: 7, Total: 84 },
     { sub: "EVS", Fa: 10, O1: 10, Sa: 50, O2: 10, Total: 80 },
-    { sub: "Social study", Fa: 10, O1: 10, Sa: 50, O2: 10, Total: 80 },
-    { sub: "Computer", Fa: 10, O1: 10, Sa: 50, O2: 10, Total: 80 },
-    { sub: "Moral", Fa: 10, O1: 10, Sa: 50, O2: 10, Total: 80 },
-    { sub: "Gk", Fa: 10, O1: 10, Sa: 50, O2: 10, Total: 80 },
-    { sub: "Conversation", Fa: 10, O1: 10, Sa: 50, O2: 10, Total: 80 },
+    { sub: "Social study", Fa: 13, O1: 3, Sa: 33, O2: 8, Total: 57 },
+    { sub: "Computer", Fa: 17, O1: 10, Sa: 60, O2: 10, Total: 97 },
+    { sub: "Moral", Fa: 15, O1: 10, Sa: 55, O2: 10, Total: 90 },
+    { sub: "Gk", Fa: 19, O1: 10, Sa: 60, O2: 10, Total: 89 },
+    { sub: "Conversation", Fa: 17, O1: 10, Sa: 57, O2: 10, Total: 94 },
 
     { sub: "Drawing", Fa: "", O1: "", Sa: null, O2: null, Total: "A" },
   ];
@@ -105,7 +105,7 @@ function App() {
                   <div className="row d-flex justify-content-center border-bottom border-dark">
                     SA
                   </div>
-                  <div className="row d-flex justify-content-center">70</div>
+                  <div className="row d-flex justify-content-center">60</div>
                 </div>
                 <div className="col-1 border-end border-top border-dark ">
                   <div className="row d-flex justify-content-center border-bottom border-dark">
@@ -156,13 +156,13 @@ function App() {
               <div className="row border-dark border-top">
                 <div className="col-6 border-end border-dark">GRAND TOTAL</div>
                 <div className="col-6 " style={{ textAlign: "right" }}>
-                  400
+                  {840}
                 </div>
               </div>
               <div className="row border-dark border-top  ">
                 <div className="col-6 border-end border-dark">PERCENTAGE</div>
                 <div className="col-6 " style={{ textAlign: "right" }}>
-                  86
+                  {93.34}
                 </div>
               </div>
               <div className="row border-dark border-top ">

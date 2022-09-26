@@ -62,7 +62,9 @@
         display:flex;
         flex-direction: column;
     }
-    
+    .main-gradescale{
+        font-size: 2px;
+    }
 }
 
 @media (min-width: 376px) { 
@@ -83,6 +85,9 @@
     .main-div-sc-cosc{
         display:flex;
         flex-direction: row;
+    }
+    .main-gradescale{
+        font-size: 5px;
     }
     
     
