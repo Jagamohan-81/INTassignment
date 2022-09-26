@@ -260,9 +260,9 @@ function App() {
             Teacher's Remark : <span className="fw-bold"> {"Excellent"}</span>
           </div>
           <div className="d-flex justify-content-between ps-1 pe-1">
-            <div>Teachers Signeture</div>
+            <div>Teachers Signature</div>
             <div>Parent's Signature</div>
-            <div>Pricpal's Signature</div>
+            <div>Principal's Signature</div>
           </div>
           <div className="row part4 p-0 m-0 ">
             <h4 className=" text-center part4 f-cap m-0 p-0">
