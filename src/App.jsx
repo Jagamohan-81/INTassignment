@@ -65,7 +65,7 @@ function App() {
   };
 
   return (
-    <>
+    <>{alert("Hover top of each section to get the Add button activated !")}
       <div className=" parent-div border-top border-bottom  border-end border-start border-dark p-0">
         <h3 className="text-center  p1  red border-bottom border-dark m-0">
           First Terminal Examination 2022-23
